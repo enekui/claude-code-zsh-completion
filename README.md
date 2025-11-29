@@ -1,6 +1,8 @@
-# Claude Code Zsh Completion
+# Claude Code Shell Completion
 
-Zsh tab completion for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI.
+Shell tab completion for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI.
+
+Supports both **Zsh** and **Bash**.
 
 ## Features
 
@@ -13,7 +15,9 @@ This completion script provides tab completion for:
 - **Permission modes**: `acceptEdits`, `bypassPermissions`, `default`, `dontAsk`, `plan`
 - **Subcommand options**: Completions for `mcp`, `plugin`, and `install` subcommands
 
-## Installation
+---
+
+## Zsh Installation
 
 ### Quick Install (one-liner)
 
@@ -48,6 +52,44 @@ autoload -Uz compinit && compinit
 exec zsh
 ```
 
+---
+
+## Bash Installation
+
+### Quick Install (one-liner)
+
+```bash
+mkdir -p ~/.bash_completion.d && curl -fsSL https://raw.githubusercontent.com/enekui/claude-code-zsh-completion/main/claude.bash -o ~/.bash_completion.d/claude.bash && echo 'source ~/.bash_completion.d/claude.bash' >> ~/.bashrc && source ~/.bashrc
+```
+
+### Manual Installation
+
+1. Create the completion directory (if it doesn't exist):
+
+```bash
+mkdir -p ~/.bash_completion.d
+```
+
+2. Download the completion script:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/enekui/claude-code-zsh-completion/main/claude.bash -o ~/.bash_completion.d/claude.bash
+```
+
+3. Add the following to your `~/.bashrc`:
+
+```bash
+source ~/.bash_completion.d/claude.bash
+```
+
+4. Reload your shell:
+
+```bash
+source ~/.bashrc
+```
+
+---
+
 ## Usage
 
 After installation, you can use tab completion with the `claude` command:
@@ -72,17 +114,27 @@ claude --permission-mode <TAB>
 claude mcp <TAB>
 ```
 
+---
+
 ## Updating
 
-To update to the latest version:
+### Zsh
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/enekui/claude-code-zsh-completion/main/_claude -o ~/.zsh/completion/_claude && exec zsh
 ```
 
+### Bash
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/enekui/claude-code-zsh-completion/main/claude.bash -o ~/.bash_completion.d/claude.bash && source ~/.bashrc
+```
+
+---
+
 ## Contributing
 
-Contributions are welcome! If Claude Code adds new commands or flags, feel free to open a PR to update the completion script.
+Contributions are welcome! If Claude Code adds new commands or flags, feel free to open a PR to update the completion scripts.
 
 ## License
 
